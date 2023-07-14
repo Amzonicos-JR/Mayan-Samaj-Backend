@@ -1,6 +1,6 @@
 'use strict'
 const User = require('./user.model');
-const Job = require('../job/job.model');
+// const Job = require('../job/job.model');
 const fs = require('fs')
 const {validateData, encrypt, checkPassword}= require('../utils/validate')
 const { createToken } = require ('../services/jwt')
@@ -11,16 +11,14 @@ exports.test = (req, res)=>{
     res.send({message: 'Test function is running'});
 }
 
-exports.register = async(req, res)=>{
+'[Contractor]'
+exports.registerContractor = async(req, res)=>{
     try{
         //Obtener la información a agregar
         let data = req.body;
-        //validar que el email de el usuario no se repita
-        let params={
-            password: data.password
-        }
-        let validate = validateData(params);
-        if(validate) return res.status(400).send(validate);
+        //Validar que el email no se repita
+        // let users = await User.find();
+        // if(data.email == users.email) return res.send({message: 'Email duplicated'})
         data.role = 'CONTRACTOR';
         data.password = await encrypt(data.password);
         let email = data.email;
@@ -30,57 +28,85 @@ exports.register = async(req, res)=>{
         }
         let user = new User(data);
         await user.save();
-        return res.status(201).send({message: 'User created succesfully',user});
+        return res.status(201).send({message: 'User registered succesfully',user});
     }catch(err){
         console.error(err);
-        return res.status(500).send({message: 'Error creating user'});
+        return res.status(500).send({message: 'Error registered user'});
     }
 }
 
-exports.getProducts = async(req, res)=>{
+exports.getC = async(req, res)=>{
     try{
         //Buscar datos
-        let products = await Product.find().populate('category');
-        return res.send({message: 'Products found', products});
+        let contractors = await User.find({role: 'CONTRACTOR'});
+        return res.send({message: 'Contractors found', contractors});
     }catch(err){
         console.error(err);
-        return res.status(500).send({message: 'Error getting products'});
+        return res.status(500).send({message: 'Error getting workers'});
     }
 }
 
-exports.getProduct = async(req, res)=>{
+'[Worker]'
+exports.registerWorker = async(req, res)=>{
     try{
-        //Obtener el Id del producto a buscar
-        let productId = req.params.id;
-        //Buscarlo en BD
-        let product = await Product.findOne({_id: productId}).populate('category');
-        //Valido que exista el producto
-        if(!product) return res.status(404).send({message: 'Product not found'});
-        //Si existe lo devuelvo
-        return res.send({message: 'Product found:', product});
+        //Obtener la información a agregar
+        let data = req.body;
+        //Validar que el email no se repita
+        // let users = await User.find();
+        // if(data.email == users.email) return res.send({message: 'Email duplicated'})
+        data.role = 'WORKER';
+        data.password = await encrypt(data.password);
+        let email = data.email;
+        let existUser = await User.findOne({email: email}); 
+        if(existUser){
+            return res.status(400).send({message: 'El email ya se encuentra registrado'});
+        }
+        let user = new User(data);
+        await user.save();
+        return res.status(201).send({message: 'User registered succesfully',user});
     }catch(err){
         console.error(err);
-        return res.status(500).send({message: 'Error getting product'});
+        return res.status(500).send({message: 'Error registered user'});
     }
 }
 
-exports.updateProduct = async(req, res)=>{
+
+exports.getW = async(req, res)=>{
     try{
-        //obtener el Id del producto
-        let productId = req.params.id;
+        //Buscar datos
+        let workers = await User.find({role: 'WORKER'});
+        return res.send({message: 'Workers found', workers});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error getting workers'});
+    }
+}
+
+
+exports.updateAccount = async(req, res)=>{
+    try{
+        //obtener el Id a actualizar
+        let id = req.user.sub;
         //obtener la data a actualizar
         let data = req.body;
+        //Validar datos a actualizar
+        let params = {
+            email: data.email,
+            password: data.password
+        }
+        let validate = validateData(params);
+        if(validate) return res.status(400).send(validate);
         //Validar que exista la categoría
-        let existCategory = await Category.findOne({_id: data.category});
-        if(!existCategory) return res.status(404).send({message: 'Category not found'});
+        let existU = await User.findOne({_id: id});
+        if(!existU) return res.status(404).send({message: 'User not found'});
         //Actualizar
-        let updatedUser = await Product.findOneAndUpdate(
-            {_id: productId},
+        let updatedUser = await User.findOneAndUpdate(
+            {_id: id},
             data,
             {new: true}
         )
-        if(!updatedUser) return res.send({message: 'Product not found and not updated'});
-        return res.send({message: 'Product updated:', updatedUser});
+        if(!updatedUser) return res.send({message: 'User not found and not updated'});
+        return res.send({message: 'User updated:', updatedUser});
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error updating product'});
@@ -90,20 +116,21 @@ exports.updateProduct = async(req, res)=>{
 exports.deleteUser = async(req, res)=>{
     try{
         let idUser = req.params.id;
-        let userJob = await Job.findOne({user : idUser})
-        if(userJob){
-            return res.status(400).send({message: 'User has jobs'});
-        }else{
+        let userJob = await Job.findOne({user: idUser})
+        // if(userJob){
+        //     return res.status(400).send({message: 'User has jobs'});
+        // }else{
             let deletedUser = await User.findOneAndDelete({_id: idUser});
             if(!deletedUser) return res.status(404).send({message: 'Error removing user or already deleted'});
             return res.send({message: 'user deleted sucessfully', deletedUser});
-        }
+        // }
     }catch(err){
         console.error(err)
         return res.status(500).send({message: 'Error removing user'})
     }
 }
 
+// Tema de la imagen
 exports.addImage = async(req, res)=>{
     try{
         //obtener el id del usuario al cual se va a vincular la imagen, por medio del token si se loggea

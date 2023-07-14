@@ -12,7 +12,7 @@ const app = express();
 const port = process.env.PORT || 3500;
 
 // Routes
-// const userRoutes = require('../src/user/user.routes')
+const userRoutes = require('../src/user/user.routes')
 
 
 //CONFIGURAR EL SERVIDOR HTTP DE EXPRESS
@@ -23,7 +23,7 @@ app.use(helmet());
 app.use(morgan('dev'));
 
 // Ruta
-// app.use('/user', userRoutes)
+app.use('/user', userRoutes)
 
 
 //Función donde se levanta el servidor
