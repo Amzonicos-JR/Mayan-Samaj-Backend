@@ -2,7 +2,8 @@ const express = require('express');
 const api = express.Router();
 const userController = require('./user.controller');
 const connectMultiparty = require('connect-multiparty')
-const upload = connectMultiparty({uploadDir: './uploads/products'})
+const upload = connectMultiparty({uploadDir: './uploads/users'})
+const { ensureAuth, isAdmin } = require('../services/authenticated');
 
 //Contractor
 api.post('/registerC', userController.registerContractor)
@@ -11,16 +12,14 @@ api.get('/getC', userController.getC)
 api.post('/registerW', userController.registerWorker)
 api.get('/getW', userController.getW)
 
-api.put('/update', userController.updateAccount);
 api.delete('/delete', userController.deleteUser)
 
-// api.get('/test', productController.test);
-// api.post('/add', productController.addProduct);
-// api.get('/get', productController.getProducts);
-// api.get('/get/:id', productController.getProduct);
-// api.put('/update/:id', productController.updateProduct);
-// api.delete('/delete/:id', productController.deleteProduct);
-// api.put('/uploadImage/:id', upload, productController.addImage)
-// api.get('/getImage/:fileName', upload, productController.getImage)
+// Login
+api.post('/login', userController.login);
+api.put('/update', [ensureAuth], userController.updateAccount);
+
+// Image
+api.put('/uploadImage', [ensureAuth], upload, userController.addImage)
+api.get('/getImage/:fileName', upload, userController.getImage)
 
 module.exports = api;
