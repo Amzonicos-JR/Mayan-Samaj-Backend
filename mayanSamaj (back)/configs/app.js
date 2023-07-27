@@ -16,7 +16,6 @@ const userRoutes = require('../src/user/user.routes')
 const oficioRoutes = require('../src/oficio/oficio.routes')
 const paymentMethodRoutes = require('../src/paymentMethod/paymentMethod.routes')
 
-
 //CONFIGURAR EL SERVIDOR HTTP DE EXPRESS
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -28,7 +27,6 @@ app.use(morgan('dev'));
 app.use('/user', userRoutes)
 app.use('/oficio', oficioRoutes)
 app.use('/paymentMethod', paymentMethodRoutes)
-
 
 //Función donde se levanta el servidor
 exports.initServer = () => {

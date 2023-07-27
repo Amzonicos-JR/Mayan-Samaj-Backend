@@ -12,14 +12,16 @@ api.get('/getC', userController.getC)
 api.post('/registerW', userController.registerWorker)
 api.get('/getW', userController.getW)
 
-api.delete('/delete', userController.deleteUser)
+api.get('/getU', userController.getU);
+api.delete('/delete/:id', userController.deleteUser)
 
 // Login
 api.post('/login', userController.login);
-api.put('/update', [ensureAuth], userController.updateAccount);
+api.put('/update/:id', userController.updateAccount);
+api.get('/getAccount/:id', [ensureAuth], userController.getAccountById)
 
-// Image
+/* Image
 api.put('/uploadImage', [ensureAuth], upload, userController.addImage)
-api.get('/getImage/:fileName', upload, userController.getImage)
+api.get('/getImage/:id', userController.getImage)*/
 
 module.exports = api;
