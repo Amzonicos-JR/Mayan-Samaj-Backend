@@ -13,6 +13,8 @@ const port = process.env.PORT || 3500;
 
 // Routes
 const userRoutes = require('../src/user/user.routes')
+const oficioRoutes = require('../src/oficio/oficio.routes')
+const paymentMethodRoutes = require('../src/paymentMethod/paymentMethod.routes')
 
 
 //CONFIGURAR EL SERVIDOR HTTP DE EXPRESS
@@ -24,6 +26,8 @@ app.use(morgan('dev'));
 
 // Ruta
 app.use('/user', userRoutes)
+app.use('/oficio', oficioRoutes)
+app.use('/paymentMethod', paymentMethodRoutes)
 
 
 //Función donde se levanta el servidor
