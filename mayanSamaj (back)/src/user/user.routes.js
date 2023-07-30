@@ -20,8 +20,8 @@ api.post('/login', userController.login);
 api.put('/update/:id', userController.updateAccount);
 api.get('/getAccount/:id', [ensureAuth], userController.getAccountById)
 
-/* Image
-api.put('/uploadImage', [ensureAuth], upload, userController.addImage)
-api.get('/getImage/:id', userController.getImage)*/
+// // Image
+// api.put('/uploadImage', [ensureAuth], upload, userController.addImage)
+// api.get('/getImage/:id', userController.getImage)
 
 module.exports = api;
