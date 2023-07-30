@@ -7,7 +7,6 @@ const { createToken } = require('../services/jwt')
 const userInfo = ['name', 'surname', 'phone', 'email', 'role']
 const path = require('path')
 
-
 exports.test = (req, res) => {
     res.send({ message: 'Test function is running' });
 }
@@ -56,10 +55,10 @@ exports.registerContractor = async (req, res) => {
         }
         let user = new User(data);
         await user.save();
-        return res.status(201).send({ message: 'User register succesfully', user });
+        return res.status(201).send({ message: 'User registered succesfully', user });
     } catch (err) {
         console.error(err);
-        return res.status(500).send({ message: 'Error registering user' });
+        return res.status(500).send({ message: 'Error registered user' });
     }
 }
 
@@ -93,10 +92,10 @@ exports.registerWorker = async (req, res) => {
         }
         let user = new User(data);
         await user.save();
-        return res.status(201).send({ message: 'User register succesfully', user });
+        return res.status(201).send({ message: 'User registered succesfully', user });
     } catch (err) {
         console.error(err);
-        return res.status(500).send({ message: 'Error registering user' });
+        return res.status(500).send({ message: 'Error registered user' });
     }
 }
 
@@ -138,44 +137,19 @@ exports.login = async (req, res) => {
     }
 }
 
-exports.getAccountById = async (req, res) => {
-    try {
-        let userId = req.params.id;
-        let user = await User.findOne({ _id: userId });
-        if (!user) return res.status(404).send({ message: 'User not found' });
-        return res.send({ message: 'User found', user })
-    } catch (err) {
-        console.error(err);
-        return res.statuts(500).send({ message: 'Error getting user' });
-    }
-}
-
-// Get users (no admin)
-exports.getU = async (req, res) => {
-    try {
-        // Hacer get de los usuarios excepto de los que tengan role 'ADMINAM'
-        const users = await User.find().where('role').ne("ADMINAM").select();
-        return res.send({ message: 'Users found', users });
-
-    } catch (err) {
-        console.error(err);
-        return res.status(500).send({ message: 'Error getting workers' });
-    }
-}
+// Image
 
 
 exports.updateAccount = async (req, res) => {
     try {
         //obtener el Id de su cuenta 
-        let id = req.params.id;
+        let id = req.user.sub;
         //obtener la data a actualizar
         let data = req.body;
         //Validar datos a actualizar
-        if (data.phone || data.email || data.password) return res.send({ message: 'Data not updateable' })
+        if (data.email || data.password) return res.send({ message: 'Data not updateable' })
         // Validar No Telefono
-        if (data.phone) {
-            if (data.phone.length != 8) return res.send({ message: 'No.phone not valid' })
-        }
+        if (data.phone.length != 8) return res.send({ message: 'No.phone not valid' })
         //Validar que exista el usuario
         let existU = await User.findOne({ _id: id });
         if (!existU) return res.status(404).send({ message: 'User not found' });
@@ -186,7 +160,7 @@ exports.updateAccount = async (req, res) => {
             { new: true }
         )
         if (!updatedUser) return res.send({ message: 'User not found and not updated' });
-        return res.send({ message: 'User updated', updatedUser });
+        return res.send({ message: 'User updated:', updatedUser });
     } catch (err) {
         console.error(err);
         return res.status(500).send({ message: 'Error updating product' });
@@ -196,10 +170,12 @@ exports.updateAccount = async (req, res) => {
 exports.deleteUser = async (req, res) => {
     try {
         let idUser = req.params.id;
-        console.log(idUser)
+        let userJob = await Job.findOne({ user: idUser })
+        // if(userJob){
+        //     return res.status(400).send({message: 'User has jobs'});
+        // }else{
         let deletedUser = await User.findOneAndDelete({ _id: idUser });
         if (!deletedUser) return res.status(404).send({ message: 'Error removing user or already deleted' });
-        return res.send({ message: `Account with email: "${deletedUser.email}" deleted sucessfully` });
         return res.send({ message: 'user deleted sucessfully', deletedUser });
         // }
     } catch (err) {
@@ -322,11 +298,8 @@ exports.addImage = async (req, res) => {
 }
 exports.getImage = async (req, res) => {
     try {
-        //Obtener el id del usuario a ver su imagen
-        let idU = req.params.id;
-        let userExist = await User.findOne({ _id: idU });
-        // Obtener el id de la imagen del usuario
-        const fileName = userExist.image;
+        // Obtener el id generado de la imagen
+        const fileName = req.params.fileName;
         const pathFile = `./uploads/users/${fileName}`
         // Verificar que exista la imagen
         const image = fs.existsSync(pathFile);

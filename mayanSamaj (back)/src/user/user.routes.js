@@ -12,13 +12,11 @@ api.get('/getC', userController.getC)
 api.post('/registerW', userController.registerWorker)
 api.get('/getW', userController.getW)
 
-api.get('/getU', userController.getU);
-api.delete('/delete/:id', userController.deleteUser)
+api.delete('/delete', userController.deleteUser)
 
 // Login
 api.post('/login', userController.login);
-api.put('/update/:id', userController.updateAccount);
-api.get('/getAccount/:id', [ensureAuth], userController.getAccountById)
+api.put('/update', [ensureAuth], userController.updateAccount);
 
 api.put('/updatePassword', [ensureAuth], userController.updatePassword);
 api.put('/updateEmail', [ensureAuth], userController.updateEmail);

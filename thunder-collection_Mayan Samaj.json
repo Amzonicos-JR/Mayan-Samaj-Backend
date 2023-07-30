@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Mayan Samaj",
-    "dateExported": "2023-07-17T03:09:28.211Z",
+    "dateExported": "2023-07-30T23:53:31.376Z",
     "version": "1.1",
     "folders": [
         {
@@ -19,10 +19,24 @@
             "sortNum": 20000
         },
         {
+            "_id": "417c569f-cdcf-46f6-aef0-d1b0f5626bf2",
+            "name": "oficio",
+            "containerId": "",
+            "created": "2023-07-27T23:30:06.914Z",
+            "sortNum": 20000
+        },
+        {
             "_id": "a1af8e87-b4e7-4cd3-ab1d-af9a691c1595",
             "name": "Worker",
             "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
             "created": "2023-07-14T05:44:35.288Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "2a77864c-0c8d-4f4a-a191-90ba83a513bf",
+            "name": "paymentMethod",
+            "containerId": "",
+            "created": "2023-07-27T23:30:08.640Z",
             "sortNum": 30000
         }
     ],
@@ -36,9 +50,19 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-07-14T05:57:25.840Z",
-            "modified": "2023-07-14T06:37:10.529Z",
+            "modified": "2023-07-27T02:13:17.974Z",
             "headers": [],
             "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": ""
+                    }
+                ]
+            },
             "tests": []
         },
         {
@@ -50,7 +74,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-07-14T06:34:39.184Z",
-            "modified": "2023-07-17T03:05:40.355Z",
+            "modified": "2023-07-27T02:25:30.770Z",
             "headers": [],
             "params": [],
             "body": {
@@ -59,19 +83,19 @@
                 "form": [
                     {
                         "name": "name",
-                        "value": "Alessandro"
+                        "value": "Alessandro2"
                     },
                     {
                         "name": "surname",
-                        "value": "Gutierrez"
+                        "value": "Gutierrez2"
                     },
                     {
                         "name": "phone",
-                        "value": "12345"
+                        "value": "12345674"
                     },
                     {
                         "name": "email",
-                        "value": "agt"
+                        "value": "agt2"
                     },
                     {
                         "name": "password",
@@ -114,6 +138,20 @@
             "tests": []
         },
         {
+            "_id": "a7fe7b09-3809-4331-835f-4214a4ac19d1",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "2a77864c-0c8d-4f4a-a191-90ba83a513bf",
+            "name": "Test-PaymentMethod",
+            "url": "/paymentMethod/test",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-07-27T23:30:08.643Z",
+            "modified": "2023-07-27T23:30:08.643Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
             "_id": "4e8bbe75-f2ba-4c11-8064-3879d3f420e8",
             "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
             "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
@@ -122,11 +160,11 @@
             "method": "PUT",
             "sortNum": 40000,
             "created": "2023-07-17T01:10:56.908Z",
-            "modified": "2023-07-17T02:50:00.323Z",
+            "modified": "2023-07-27T18:46:36.779Z",
             "headers": [
                 {
                     "name": "Authorization",
-                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGI0YWJjYmMxM2U3Njk2ZGU2YWI4MWIiLCJuYW1lIjoiYWxlc3NhbmRybyIsInN1cm5hbWUiOiJndXRpZXJyZXoiLCJwaG9uZSI6IjEyMzQ1IiwiZW1haWwiOiJBR1QiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjg5NTYyMDYwLCJleHAiOjE2ODk1NjkyNjB9.UqQ-iXU3mZfZnTOjDjAp2EnY2wdXCFv2zxL-QxogsQg\""
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMyMjc2NjBiYmFkYzE0MTAyZTg2MGUiLCJuYW1lIjoiYWxlc3NhbmRybzIiLCJzdXJuYW1lIjoiZ3V0aWVycmV6MiIsInBob25lIjoiMTIzNDU2NzQiLCJlbWFpbCI6ImFndDIiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDgzNDU3LCJleHAiOjE2OTA0OTA2NTd9.NxeSq308Iuu88GT7iaqTQB-Yc2oB9-jsyDqMUkUF0pU\""
                 }
             ],
             "params": [],
@@ -144,6 +182,39 @@
             "tests": []
         },
         {
+            "_id": "b29896c7-5ecc-46a9-8b7a-4cb792eac8fe",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "2a77864c-0c8d-4f4a-a191-90ba83a513bf",
+            "name": "Add-PaymentMethod",
+            "url": "/paymentMethod/add",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-07-27T23:30:08.643Z",
+            "modified": "2023-07-27T23:30:08.643Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMxZjNkYTA2OTA4NzY2NzZlYzRiNGYiLCJuYW1lIjoiam9zdWUiLCJzdXJuYW1lIjoicGVyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJKUEVSRVoiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDMyNTk0LCJleHAiOjE2OTA0Mzk3OTR9.N3q_Qmh7E3BwP9tOvD2eWpSngdWPDNPm_qFqXiMbUlE\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Tranferencia"
+                    },
+                    {
+                        "name": "paymentMethod_type",
+                        "value": "En linea"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
             "_id": "59aae7a0-2c86-4310-8a19-35bf03476c94",
             "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
             "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
@@ -152,7 +223,7 @@
             "method": "POST",
             "sortNum": 50000,
             "created": "2023-07-17T01:15:09.483Z",
-            "modified": "2023-07-17T01:17:51.180Z",
+            "modified": "2023-07-27T08:14:49.163Z",
             "headers": [],
             "params": [],
             "body": {
@@ -161,7 +232,7 @@
                 "form": [
                     {
                         "name": "email",
-                        "value": "agt"
+                        "value": "agt2"
                     },
                     {
                         "name": "password",
@@ -172,16 +243,319 @@
             "tests": []
         },
         {
+            "_id": "87a23f84-e00f-481d-a98f-d51b1b97defd",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "2a77864c-0c8d-4f4a-a191-90ba83a513bf",
+            "name": "Get-PaymentMethod",
+            "url": "/paymentMethod/get",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-07-27T23:30:08.643Z",
+            "modified": "2023-07-27T23:30:08.643Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMxZjNkYTA2OTA4NzY2NzZlYzRiNGYiLCJuYW1lIjoiam9zdWUiLCJzdXJuYW1lIjoicGVyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJKUEVSRVoiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDMyNTk0LCJleHAiOjE2OTA0Mzk3OTR9.N3q_Qmh7E3BwP9tOvD2eWpSngdWPDNPm_qFqXiMbUlE\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
             "_id": "d85ec8fa-2f79-4fec-9252-532dd5787440",
             "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
             "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
             "name": "Get Image",
-            "url": "/user/getImage/2pbLdqoxwqJed6vrmmZMiy-x.jpg",
+            "url": "/user/getImage/64c227660bbadc14102e860e",
             "method": "GET",
             "sortNum": 60000,
             "created": "2023-07-17T01:37:25.400Z",
-            "modified": "2023-07-17T01:38:08.158Z",
+            "modified": "2023-07-27T08:15:11.133Z",
             "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "cf734c58-85c1-497d-93e4-c0a757453a9d",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "2a77864c-0c8d-4f4a-a191-90ba83a513bf",
+            "name": "Get ID-PaymentMethod",
+            "url": "/paymentMethod/get/64c1f4710690876676ec4b53",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-07-27T23:30:08.643Z",
+            "modified": "2023-07-27T23:30:08.643Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMxZjNkYTA2OTA4NzY2NzZlYzRiNGYiLCJuYW1lIjoiam9zdWUiLCJzdXJuYW1lIjoicGVyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJKUEVSRVoiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDMyNTk0LCJleHAiOjE2OTA0Mzk3OTR9.N3q_Qmh7E3BwP9tOvD2eWpSngdWPDNPm_qFqXiMbUlE\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8ef33c99-1e5c-4103-bf30-460c0cc3bb4e",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
+            "name": "Update Account",
+            "url": "/user/update/64c227660bbadc14102e860e",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2023-07-17T03:12:14.267Z",
+            "modified": "2023-07-27T19:58:36.561Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": " \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMyMjc2NjBiYmFkYzE0MTAyZTg2MGUiLCJuYW1lIjoiYWxlc3NhbmRybzIiLCJzdXJuYW1lIjoiZ3V0aWVycmV6MiIsInBob25lIjoiMTIzNDU2NzQiLCJlbWFpbCI6ImFndDIiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDg3NTA1LCJleHAiOjE2OTA0OTQ3MDV9.sxH5U1tNd3LKbVDWNEVUKxZTCv_yLVrUzcgx9A1v5po\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Alexs2"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "12345673",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "236bec6b-bda0-4d1b-8697-6cf2df0272e8",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "2a77864c-0c8d-4f4a-a191-90ba83a513bf",
+            "name": "Update-PaymentMethod",
+            "url": "/paymentMethod/update/64c1f4710690876676ec4b53",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2023-07-27T23:30:08.643Z",
+            "modified": "2023-07-27T23:30:08.643Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMxZjNkYTA2OTA4NzY2NzZlYzRiNGYiLCJuYW1lIjoiam9zdWUiLCJzdXJuYW1lIjoicGVyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJKUEVSRVoiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDMyNTk0LCJleHAiOjE2OTA0Mzk3OTR9.N3q_Qmh7E3BwP9tOvD2eWpSngdWPDNPm_qFqXiMbUlE\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Deposito"
+                    },
+                    {
+                        "name": "paymentMethod_type",
+                        "value": "En persona"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "3bccfd34-7e45-4c0b-aa8a-0657eadb69c1",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
+            "name": "Get Users",
+            "url": "/user/getU",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-07-27T06:08:16.246Z",
+            "modified": "2023-07-27T06:08:28.693Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "73746c22-ac8c-4cf1-8a61-6df1b48c90c7",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "2a77864c-0c8d-4f4a-a191-90ba83a513bf",
+            "name": "Delete-PaymentMethod",
+            "url": "/paymentMethod/delete/64c1f4710690876676ec4b53",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2023-07-27T23:30:08.643Z",
+            "modified": "2023-07-27T23:30:08.643Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMxZjNkYTA2OTA4NzY2NzZlYzRiNGYiLCJuYW1lIjoiam9zdWUiLCJzdXJuYW1lIjoicGVyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJKUEVSRVoiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDMyNTk0LCJleHAiOjE2OTA0Mzk3OTR9.N3q_Qmh7E3BwP9tOvD2eWpSngdWPDNPm_qFqXiMbUlE\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f7b91cbc-fd97-412a-9233-8656c6e3147f",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
+            "name": "Delete User",
+            "url": "/user/delete/64c20bdff95630d88a47ddda",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2023-07-27T07:45:15.249Z",
+            "modified": "2023-07-27T07:51:23.145Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "9a331929-83f4-4a61-bae2-a4c6f1855005",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "417c569f-cdcf-46f6-aef0-d1b0f5626bf2",
+            "name": "Test-Oficio",
+            "url": "/oficio/test",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2023-07-27T23:30:06.916Z",
+            "modified": "2023-07-27T23:30:06.916Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "60f0b6b7-2257-4611-b428-6e914b0fdcf1",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
+            "name": "get account",
+            "url": "/user/getAccount/64c227660bbadc14102e860e",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2023-07-27T19:42:51.956Z",
+            "modified": "2023-07-27T19:44:20.960Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "419e7aab-bcbf-4a49-a64d-01af93d2b95f",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "417c569f-cdcf-46f6-aef0-d1b0f5626bf2",
+            "name": "Add-Oficio",
+            "url": "/oficio/add",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2023-07-27T23:30:06.916Z",
+            "modified": "2023-07-27T23:30:06.916Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMxZjNkYTA2OTA4NzY2NzZlYzRiNGYiLCJuYW1lIjoiam9zdWUiLCJzdXJuYW1lIjoicGVyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJKUEVSRVoiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDMyNTk0LCJleHAiOjE2OTA0Mzk3OTR9.N3q_Qmh7E3BwP9tOvD2eWpSngdWPDNPm_qFqXiMbUlE\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Plomero"
+                    },
+                    {
+                        "name": "description",
+                        "value": "7 años de experiencia"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "b21536c7-9521-4ea4-802b-06619d0cda71",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "417c569f-cdcf-46f6-aef0-d1b0f5626bf2",
+            "name": "Get-Oficio",
+            "url": "/oficio/get",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2023-07-27T23:30:06.916Z",
+            "modified": "2023-07-27T23:30:06.916Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMxZjNkYTA2OTA4NzY2NzZlYzRiNGYiLCJuYW1lIjoiam9zdWUiLCJzdXJuYW1lIjoicGVyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJKUEVSRVoiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDMyNTk0LCJleHAiOjE2OTA0Mzk3OTR9.N3q_Qmh7E3BwP9tOvD2eWpSngdWPDNPm_qFqXiMbUlE\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "bdf3aa51-0012-4f77-a509-682fb5b99b76",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "417c569f-cdcf-46f6-aef0-d1b0f5626bf2",
+            "name": "Get ID-Oficio",
+            "url": "/oficio/get/64c1f5320690876676ec4b5c",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2023-07-27T23:30:06.916Z",
+            "modified": "2023-07-27T23:30:06.916Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMxZjNkYTA2OTA4NzY2NzZlYzRiNGYiLCJuYW1lIjoiam9zdWUiLCJzdXJuYW1lIjoicGVyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJKUEVSRVoiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDMyNTk0LCJleHAiOjE2OTA0Mzk3OTR9.N3q_Qmh7E3BwP9tOvD2eWpSngdWPDNPm_qFqXiMbUlE\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1f9df954-3c74-450f-8009-8d0c77f224ad",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "417c569f-cdcf-46f6-aef0-d1b0f5626bf2",
+            "name": "Update-Oficio",
+            "url": "/oficio/update/64c1f5320690876676ec4b5c",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2023-07-27T23:30:06.916Z",
+            "modified": "2023-07-27T23:30:06.916Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMxZjNkYTA2OTA4NzY2NzZlYzRiNGYiLCJuYW1lIjoiam9zdWUiLCJzdXJuYW1lIjoicGVyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJKUEVSRVoiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDMyNTk0LCJleHAiOjE2OTA0Mzk3OTR9.N3q_Qmh7E3BwP9tOvD2eWpSngdWPDNPm_qFqXiMbUlE\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Albañileria"
+                    },
+                    {
+                        "name": "description",
+                        "value": "10 años de experiencia"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "9e54be5b-d435-4ffd-8d81-ffa0b119aaf1",
+            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
+            "containerId": "417c569f-cdcf-46f6-aef0-d1b0f5626bf2",
+            "name": "Delete-Oficio",
+            "url": "/oficio/delete/64c1f5320690876676ec4b5c",
+            "method": "DELETE",
+            "sortNum": 140000,
+            "created": "2023-07-27T23:30:06.916Z",
+            "modified": "2023-07-27T23:30:06.916Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMxZjNkYTA2OTA4NzY2NzZlYzRiNGYiLCJuYW1lIjoiam9zdWUiLCJzdXJuYW1lIjoicGVyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJKUEVSRVoiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNDMyNTk0LCJleHAiOjE2OTA0Mzk3OTR9.N3q_Qmh7E3BwP9tOvD2eWpSngdWPDNPm_qFqXiMbUlE\""
+                }
+            ],
             "params": [],
             "tests": []
         }
