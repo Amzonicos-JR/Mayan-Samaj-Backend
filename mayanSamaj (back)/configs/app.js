@@ -16,6 +16,7 @@ const userRoutes = require('../src/user/user.routes')
 const jobRoutes = require('../src/job/job.routes')
 const requestRouter = require('../src/request/request.routes')
 const receiptRoutes = require('../src/receipt/receipt.routes')
+const emailRoutes = require('../src/email/email.routes')
 
 //CONFIGURAR EL SERVIDOR HTTP DE EXPRESS
 app.use(express.urlencoded({ extended: false }));
@@ -29,6 +30,7 @@ app.use('/user', userRoutes)
 app.use('/job', jobRoutes)
 app.use('/request', requestRouter)
 app.use('/receipt', receiptRoutes)
+app.use('/email', emailRoutes)
 
 //Función donde se levanta el servidor
 exports.initServer = () => {
