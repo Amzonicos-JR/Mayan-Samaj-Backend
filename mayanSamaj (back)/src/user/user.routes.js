@@ -20,6 +20,7 @@ api.post('/login', userController.login);
 api.put('/update/:id', userController.updateAccount);
 api.get('/getAccount/:id', [ensureAuth], userController.getAccountById)
 api.put('/updatePassword', [ensureAuth], userController.updatePassword);
+api.put('/updateEmail', [ensureAuth], userController.updateEmail);
 api.get('/getProfile', [ensureAuth], userController.getProfile);
 
 /* Image

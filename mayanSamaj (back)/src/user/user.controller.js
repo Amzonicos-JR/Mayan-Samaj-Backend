@@ -248,6 +248,35 @@ exports.updatePassword = async (req, res) => {
     }
 };
 
+exports.updateEmail = async (req, res) =>{
+    try{
+    let data = req.body;
+        //let userId = req.params.id;
+        let user = await User.findOne({ _id: req.user.sub });
+        if (await checkPassword(data.password, user.password)) {
+            if (Object.entries(data).length === 0) return res.status(400).send({ message: 'Have submitted some data that cannot be updated' });
+            let updateEmail = await User.findOneAndUpdate(
+                { _id: req.user.sub },
+                { email: data.newEmail },
+                { new: true }
+            );
+            if (!updateEmail)
+                return res
+                    .status(404)
+                    .send({ message: "User not found and email not updated" });
+            return res.send({
+                message: "The email has been successfully updated",
+                updateEmail
+            });
+        } else {
+            return res.status(400).send({ message: "Passwords do not match" });
+        }
+    } catch (err) {
+        console.error(err);
+        return res.send({ message: "Error, could not update email" });
+    }
+}
+
 // --------------------------------------------------- [Tema de la imagen] ---------------------------------------------------
 
 exports.addImage = async (req, res) => {
