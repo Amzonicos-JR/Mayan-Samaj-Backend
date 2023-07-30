@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema({
     email: {
         type: String,
         unique: true,
-        lowercase: true, 
+        uppercase: true, // Aplicar transformación a mayúsculas
         required: true
     },
     password: {
@@ -32,9 +32,9 @@ const userSchema = mongoose.Schema({
         type: String,
         uppercase: true
     },
-    // image:{
-    //     type: String
-    // }
+    image:{
+        type: String
+    }
     
 },{
     versionKey: false

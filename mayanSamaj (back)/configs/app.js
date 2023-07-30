@@ -13,10 +13,9 @@ const port = process.env.PORT || 3500;
 
 // Routes
 const userRoutes = require('../src/user/user.routes')
-const oficioRoutes = require('../src/oficio/oficio.routes')
-const paymentMethodRoutes = require('../src/paymentMethod/paymentMethod.routes')
 const jobRoutes = require('../src/job/job.routes')
 const requestRouter = require('../src/request/request.routes')
+const receiptRoutes = require('../src/receipt/receipt.routes')
 
 //CONFIGURAR EL SERVIDOR HTTP DE EXPRESS
 app.use(express.urlencoded({ extended: false }));
@@ -27,10 +26,9 @@ app.use(morgan('dev'));
 
 // Ruta
 app.use('/user', userRoutes)
-app.use('/oficio', oficioRoutes)
-app.use('/paymentMethod', paymentMethodRoutes)
 app.use('/job', jobRoutes)
 app.use('/request', requestRouter)
+app.use('/receipt', receiptRoutes)
 
 //Función donde se levanta el servidor
 exports.initServer = () => {
