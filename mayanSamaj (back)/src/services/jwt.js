@@ -9,8 +9,8 @@ exports.createToken = async(user)=>{
             sub: user._id,
             name: user.name,
             surname: user.surname,
-            username: user.username,
             phone: user.phone,
+            email: user.email,
             role: user.role,    //Math floor devuelve valor entero
             iat: Math.floor(Date.now() / 1000),// fecha actual en formato UNIX | Segundos
             exp: Math.floor(Date.now() / 1000) + (60 * 120)

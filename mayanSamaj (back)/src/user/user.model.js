@@ -5,18 +5,23 @@ const mongoose = require('mongoose');
 const userSchema = mongoose.Schema({
     name: {
         type: String,
+        lowercase: true,
         required: true
     },
     surname:{
         type: String,
+        lowercase: true,
         required: true
     },
     phone:{
         type: String,
+        unique: true,
         required: true
     },
     email: {
         type: String,
+        unique: true,
+        lowercase: true, 
         required: true
     },
     password: {
@@ -24,11 +29,12 @@ const userSchema = mongoose.Schema({
         required: true
     },
     role: {
-        type: String
+        type: String,
+        uppercase: true
     },
-    image:{
-        type: String
-    }
+    // image:{
+    //     type: String
+    // }
     
 },{
     versionKey: false
