@@ -35,6 +35,8 @@ exports.adminAM = async (req, res) => {
     }
 }
 
+
+
 '[Contractor]'
 exports.registerContractor = async (req, res) => {
     try {
@@ -203,6 +205,77 @@ exports.deleteUser = async (req, res) => {
     } catch (err) {
         console.error(err)
         return res.status(500).send({ message: 'Error removing user' })
+    }
+}
+
+exports.getProfile = async (req, res) => {
+    try {
+        //let userId = req.params.id;
+        let user = await User.findOne({ _id: req.user.sub })
+        if (!user) return res.status(404).send({ message: 'User not found' });
+        return res.send({ message: 'User found', user: user })
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({ message: 'Error getting user' });
+    }
+}
+
+exports.updatePassword = async (req, res) => {
+    try {
+        let data = req.body;
+        //let userId = req.params.id;
+        let user = await User.findOne({ _id: req.user.sub });
+        if (await checkPassword(data.password, user.password)) {
+            if (Object.entries(data).length === 0) return res.status(400).send({ message: 'Have submitted some data that cannot be updated' });
+            let newPassword = await encrypt(data.newPassword);
+            let updatePassword = await User.findOneAndUpdate(
+                { _id: req.user.sub },
+                { password: newPassword },
+                { new: true }
+            );
+            if (!updatePassword)
+                return res
+                    .status(404)
+                    .send({ message: "User not found and password not updated" });
+            return res.send({
+                message: "The password has been successfully updated",
+                updatePassword
+            });
+        } else {
+            return res.status(400).send({ message: "Passwords do not match" });
+        }
+    } catch (err) {
+        console.error(err);
+        return res.send({ message: "Error, could not update password" });
+    }
+};
+
+exports.updateEmail = async (req, res) =>{
+    try{
+    let data = req.body;
+        //let userId = req.params.id;
+        let user = await User.findOne({ _id: req.user.sub });
+        if (await checkPassword(data.password, user.password)) {
+            if (Object.entries(data).length === 0) return res.status(400).send({ message: 'Have submitted some data that cannot be updated' });
+            let updateEmail = await User.findOneAndUpdate(
+                { _id: req.user.sub },
+                { email: data.newEmail },
+                { new: true }
+            );
+            if (!updateEmail)
+                return res
+                    .status(404)
+                    .send({ message: "User not found and email not updated" });
+            return res.send({
+                message: "The email has been successfully updated",
+                updateEmail
+            });
+        } else {
+            return res.status(400).send({ message: "Passwords do not match" });
+        }
+    } catch (err) {
+        console.error(err);
+        return res.send({ message: "Error, could not update email" });
     }
 }
 

@@ -20,8 +20,12 @@ api.post('/login', userController.login);
 api.put('/update/:id', userController.updateAccount);
 api.get('/getAccount/:id', [ensureAuth], userController.getAccountById)
 
-// // Image
-// api.put('/uploadImage', [ensureAuth], upload, userController.addImage)
-// api.get('/getImage/:id', userController.getImage)
+api.put('/updatePassword', [ensureAuth], userController.updatePassword);
+api.put('/updateEmail', [ensureAuth], userController.updateEmail);
+api.get('/getProfile', [ensureAuth], userController.getProfile);
+
+/* Image
+api.put('/uploadImage', [ensureAuth], upload, userController.addImage)
+api.get('/getImage/:id', userController.getImage)*/
 
 module.exports = api;
