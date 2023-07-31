@@ -2,7 +2,7 @@
 const express = require('express')
 const api = express.Router()
 const requestController = require('./request.controller')
-const { ensureAuth, isAdmin} = require('../services/authenticated')
+const { ensureAuth, isAdmin } = require('../services/authenticated')
 
 api.get('/test', requestController.test)
 api.get('/getWorker', [ensureAuth], requestController.getWorker)
@@ -11,6 +11,6 @@ api.post('/add', [ensureAuth], requestController.add)
 api.put('/accept/:id', [ensureAuth], requestController.accept)
 api.put('/rejected/:id', [ensureAuth], requestController.rejected)
 api.put('/update/:id', [ensureAuth], requestController.update)
-api.delete('/delete/:id',[ensureAuth], requestController.delete)
+api.delete('/delete/:id', [ensureAuth], requestController.delete)
 
 module.exports = api

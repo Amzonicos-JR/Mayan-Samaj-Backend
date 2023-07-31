@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 
-const requestSchema =  mongoose.Schema({
+const requestSchema = mongoose.Schema({
     job: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Job",
@@ -20,7 +20,7 @@ const requestSchema =  mongoose.Schema({
         type: String,
         require: true
     }
-},{
+}, {
     versionKey: false
 })
 
