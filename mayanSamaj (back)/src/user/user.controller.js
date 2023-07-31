@@ -211,36 +211,36 @@ exports.getProfile = async (req, res) => {
     }
 }
 
-exports.updatePassword = async (req, res) => {
+exports.updateEmail = async (req, res) => {
     try {
         let data = req.body;
         //let userId = req.params.id;
+        if (!data.password || !data.newEmail) {
+            return res.status(400).send({ message: 'Please provide both old and new passwords' });
+        }
         let user = await User.findOne({ _id: req.user.sub });
         if (await checkPassword(data.password, user.password)) {
-            console.log(user.password, 'sxf')
-            if (Object.entries(data).length === 0) return res.status(400).send({ message: 'Have submitted some data that cannot be updated' });
-            let newPassword = await encrypt(data.newPassword);
-            let updatePassword = await User.findOneAndUpdate(
+            let updateEmail = await User.findOneAndUpdate(
                 { _id: req.user.sub },
-                { password: newPassword },
+                { email: data.newEmail },
                 { new: true }
             );
-            if (!updatePassword)
+            if (!updateEmail)
                 return res
                     .status(404)
-                    .send({ message: "User not found and password not updated" });
+                    .send({ error: "User not found and email not updated" });
             return res.send({
-                message: "The password has been successfully updated",
-                updatePassword
+                message: "The email has been successfully updated",
+                updateEmail
             });
         } else {
-            return res.status(400).send({ message: "Passwords do not match" });
+            return res.status(200).send({ error: "Invalid Password" });
         }
     } catch (err) {
         console.error(err);
-        return res.send({ message: "Error, could not update password" });
+        return res.send({ message: "Error, could not update email" });
     }
-};
+}
 
 exports.updateEmail = async (req, res) => {
     try {

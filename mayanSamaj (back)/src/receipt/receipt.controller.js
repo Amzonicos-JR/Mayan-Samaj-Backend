@@ -28,11 +28,11 @@ exports.getByUser = async (req, res) => {
     try {
         let idContractor = req.params.id;
         let user = await User.findOne({ _id: idContractor });
-        let receipt = await Receipt.findOne({ contractor: user.name + ' ' + user.surname });
-        return res.send({message: 'Receipts: ', receipt})
+        let receipt = await Receipt.find({ contractor: user.name + ' ' + user.surname });
+        return res.send({ message: 'Receipts: ', receipt })
     } catch (error) {
         console.error(error)
-        return res.status(500).send({message: 'Error getting receipt'});
+        return res.status(500).send({ message: 'Error getting receipt' });
     }
 
 }
