@@ -1,6 +1,7 @@
 'use strict'
 const User = require('../user/user.model')
 const Job = require('./job.model')
+const Receipt = require ('../receipt/receipt.model')
 const Request = require('../request/request.model')
 const infoWorker = '-_id '
 const infoUser = ' -password -role'
@@ -312,6 +313,27 @@ exports.delete = async (req, res) => {
     }
 }
 
+// exports.completed = async (req, res) => {
+//     try {
+//         let idJob = req.params.id
+//         let idContractor = req.user.sub
+//         let data = req.body
+//         //verificar que job exista
+//         let job = await Job.findOne({ _id: idJob, contractor: idContractor })
+//         if (!job) return res.status(404).send({ message: 'Job not found or cannot completed another contractors job' })
+
+//         //agregar una calificaion y el status a completed
+//         await Job.updateOne({ _id: idJob }, { qualification: data.qualification, status: "Completed" })
+
+//         //cambiar el status de request a completed
+//         await Request.updateOne({ _id: job.request }, { status: "Completed" })
+
+//         return res.status(200).send({ message: "Completed job successfully" })
+//     } catch (err) {
+//         console.error(err)
+//         return res.status(500).send({ message: "Error to completed job" })
+//     }
+// }
 exports.completed = async (req, res) => {
     try {
         let idJob = req.params.id
@@ -326,6 +348,13 @@ exports.completed = async (req, res) => {
 
         //cambiar el status de request a completed
         await Request.updateOne({ _id: job.request }, { status: "Completed" })
+
+        let user = await User.findOne({ _id: job.contractor }).select('-id name surname')
+        data.contractor = user.name + ' ' + user.surname;
+        data.totalPay = job.price;
+        data.jobDescription = job.description;
+        let receipt = new Receipt(data)
+        await receipt.save()
 
         return res.status(200).send({ message: "Completed job successfully" })
     } catch (err) {
