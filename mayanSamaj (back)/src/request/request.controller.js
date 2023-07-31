@@ -38,8 +38,9 @@ exports.getJob = async(req, res) => {
                 select: infoUser
                 },
             })
+        if(!job) return res.status(404).send({message: "Job not found"})    
         let requests = job.requestWorkers
-        if(!job) return res.status(404).send({message: "Job not found"})
+
         return res.status(200).send({requests})
     }catch(err){
         console.error(err)
@@ -122,10 +123,45 @@ exports.accept = async(req, res) => {
             {request: idRequest ,status: "InProgress"})
         
 
-        return res.status(200).send({message: "Accept succefully"})
+        return res.status(200).send({message: "Accept successfully"})
     }catch(err){
         console.error(err)
         return res.status(500).send({message: "Error to accept request"})
+    }
+}
+
+exports.rejected = async(req, res) => {
+    try{
+        let data = req.body
+        let idContractor = req.user.sub
+        let idRequest = req.params.id
+
+        //verificar que job exista
+        let job = await Job.findOne({_id: data.job})
+        if(!job) return res.status(404).send({message: 'Job not found'})
+
+        //verificar que no pueda aceptar de otros trabajadores
+        let existJob = await Job.findOne({_id: data.job, contractor: idContractor})
+        if(!existJob) return res.status(403).send({message: 'cannot rejected another contractors request'})
+
+        //verificar que request exista en job
+        let existRequest = await Job.findOne({_id: data.job, requestWorkers: idRequest})
+        if(!existRequest) return res.status(404).send({message: "Request not foun in job"})
+
+        //eliminar el request del job
+        await Job.updateOne(
+            {_id: data.job},
+            {$pull: {requestWorkers: idRequest}})
+
+        //cambiar el status del request a rejected
+        await Request.findOneAndUpdate(
+            {_id: idRequest},
+            {status: "Rejected"})
+            
+        return res.status(200).send({message: "Rejected successfully"})
+    }catch(err){
+        console.error(err)
+        return res.status(500).send({message: "Error to rejected request"})
     }
 }
 
@@ -153,10 +189,14 @@ exports.update = async(req, res) => {
 
 exports.delete = async(req, res) => {
     try{
-        let idRequest = req.params.id
-        let idWorker = req.user.sub
-        let idJob = req.body.job
 
+        let idWorker = req.user.sub        
+        let idJob = req.params.id
+
+        let x = await Request.findOne({job: idJob, worker: idWorker})
+        if(!x) return  res.status(404).send({message: "Request not found"})
+
+        let idRequest = x._id
         //verificar que request exista
         let existRequest = await Request.findOne({_id: idRequest})
         if(!existRequest) return res.status(404).send({message: "Request not found"})
