@@ -9,6 +9,7 @@ api.get('/getWorker', [ensureAuth], requestController.getWorker)
 api.get('/getJob/:id', requestController.getJob)
 api.post('/add', [ensureAuth], requestController.add)
 api.put('/accept/:id', [ensureAuth], requestController.accept)
+api.put('/rejected/:id', [ensureAuth], requestController.rejected)
 api.put('/update/:id', [ensureAuth], requestController.update)
 api.delete('/delete/:id',[ensureAuth], requestController.delete)
 

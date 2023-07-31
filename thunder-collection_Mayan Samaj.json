@@ -1,56 +1,114 @@
 {
     "client": "Thunder Client",
     "collectionName": "Mayan Samaj",
-    "dateExported": "2023-07-17T03:09:28.211Z",
+    "dateExported": "2023-07-31T11:51:47.845Z",
     "version": "1.1",
     "folders": [
         {
-            "_id": "662854cd-6457-402b-b6a3-077d8cafbe76",
+            "_id": "d6ab9492-e1a0-46ae-a4bf-0ea05c10620a",
             "name": "User",
             "containerId": "",
-            "created": "2023-07-14T05:44:21.217Z",
+            "created": "2023-07-25T00:55:58.897Z",
             "sortNum": 10000
         },
         {
-            "_id": "b07192d2-dd82-40fe-aa58-12a92bcc3664",
+            "_id": "8e964086-1475-40e4-9acb-2c35284d739e",
             "name": "Contractor",
-            "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
-            "created": "2023-07-14T05:44:29.001Z",
+            "containerId": "d6ab9492-e1a0-46ae-a4bf-0ea05c10620a",
+            "created": "2023-07-25T00:55:58.898Z",
             "sortNum": 20000
         },
         {
-            "_id": "a1af8e87-b4e7-4cd3-ab1d-af9a691c1595",
+            "_id": "1fa5f992-fd9f-4c4f-9fab-f66811948562",
             "name": "Worker",
-            "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
-            "created": "2023-07-14T05:44:35.288Z",
+            "containerId": "d6ab9492-e1a0-46ae-a4bf-0ea05c10620a",
+            "created": "2023-07-25T00:55:58.899Z",
             "sortNum": 30000
+        },
+        {
+            "_id": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "Job",
+            "containerId": "",
+            "created": "2023-07-25T01:11:45.180Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "efe4a47c-ff50-409d-9ff6-859b498e9668",
+            "name": "Request",
+            "containerId": "",
+            "created": "2023-07-27T18:20:07.701Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "e97de87d-71a7-4a3f-8c8c-7654be73611c",
+            "name": "for contractor ",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "created": "2023-07-30T21:01:49.132Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "c98c700f-2545-4bef-8549-760d7f74eacb",
+            "name": "for worker",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "created": "2023-07-31T02:19:40.622Z",
+            "sortNum": 80000
         }
     ],
     "requests": [
         {
-            "_id": "9b6e1642-f9d0-4c8d-9f2c-2a105f42c05c",
-            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
-            "containerId": "b07192d2-dd82-40fe-aa58-12a92bcc3664",
+            "_id": "851e18ee-98a6-4aca-bb67-8d70faab20b4",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "8e964086-1475-40e4-9acb-2c35284d739e",
             "name": "register c",
             "url": "/user/registerC",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2023-07-14T05:57:25.840Z",
-            "modified": "2023-07-14T06:37:10.529Z",
+            "created": "2023-07-25T00:55:58.897Z",
+            "modified": "2023-07-25T03:28:27.260Z",
             "headers": [],
             "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Job"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Sis"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "11111111"
+                    },
+                    {
+                        "name": "email",
+                        "value": "jsis"
+                    },
+                    {
+                        "name": "password",
+                        "value": "123"
+                    },
+                    {
+                        "name": "role",
+                        "value": "contractor"
+                    }
+                ]
+            },
             "tests": []
         },
         {
-            "_id": "5dc7807f-7d96-4ccd-8945-229333984a45",
-            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
-            "containerId": "a1af8e87-b4e7-4cd3-ab1d-af9a691c1595",
+            "_id": "e4deb3a3-46bb-47c1-be50-3f84cddddbcd",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "1fa5f992-fd9f-4c4f-9fab-f66811948562",
             "name": "register W",
             "url": "/user/registerW",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2023-07-14T06:34:39.184Z",
-            "modified": "2023-07-17T03:05:40.355Z",
+            "created": "2023-07-25T00:55:58.899Z",
+            "modified": "2023-07-25T01:50:43.163Z",
             "headers": [],
             "params": [],
             "body": {
@@ -67,7 +125,7 @@
                     },
                     {
                         "name": "phone",
-                        "value": "12345"
+                        "value": "12345678"
                     },
                     {
                         "name": "email",
@@ -86,43 +144,62 @@
             "tests": []
         },
         {
-            "_id": "35b4730a-ce9e-4832-8767-2036fbcaae49",
-            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
-            "containerId": "b07192d2-dd82-40fe-aa58-12a92bcc3664",
+            "_id": "8a65b0ca-c117-4e19-bbe7-b1803a8333a1",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "e97de87d-71a7-4a3f-8c8c-7654be73611c",
+            "name": "get my jobs",
+            "url": "/job/getmyjob",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-07-30T03:35:09.959Z",
+            "modified": "2023-07-30T03:56:04.719Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmNDE1YjFiOWRkNmExYjg1NGY3MmMiLCJuYW1lIjoiam9iIiwic3VybmFtZSI6InNpcyIsInBob25lIjoiMTExMTExMTEiLCJlbWFpbCI6IkpTSVMiLCJyb2xlIjoiQ09OVFJBQ1RPUiIsImlhdCI6MTY5MDY4ODAyMCwiZXhwIjoxNjkwNjk1MjIwfQ.t0LoEpOOZRgywU1b5si97rdY03l3faY6ZkV7N7rD3rk"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f461c199-8333-4cc2-b912-ea8ea6f189d6",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "8e964086-1475-40e4-9acb-2c35284d739e",
             "name": "get contractors",
             "url": "/user/getC",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2023-07-14T06:38:49.717Z",
-            "modified": "2023-07-14T06:39:59.047Z",
+            "created": "2023-07-25T00:55:58.900Z",
+            "modified": "2023-07-25T00:55:58.900Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "fd931adc-517b-4703-82fd-b5386ac772e2",
-            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
-            "containerId": "a1af8e87-b4e7-4cd3-ab1d-af9a691c1595",
+            "_id": "6dceab45-48a4-4a6c-a109-11af80f5ce47",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "1fa5f992-fd9f-4c4f-9fab-f66811948562",
             "name": "get workers",
             "url": "/user/getW",
             "method": "GET",
             "sortNum": 30000,
-            "created": "2023-07-14T06:40:16.692Z",
-            "modified": "2023-07-14T06:40:22.595Z",
+            "created": "2023-07-25T00:55:58.901Z",
+            "modified": "2023-07-25T00:55:58.901Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "4e8bbe75-f2ba-4c11-8064-3879d3f420e8",
-            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
-            "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
+            "_id": "481881ce-ed44-4c2e-99e8-67e4d6164500",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "d6ab9492-e1a0-46ae-a4bf-0ea05c10620a",
             "name": "Add Image ",
             "url": "/user/uploadImage",
             "method": "PUT",
             "sortNum": 40000,
-            "created": "2023-07-17T01:10:56.908Z",
-            "modified": "2023-07-17T02:50:00.323Z",
+            "created": "2023-07-25T00:55:58.902Z",
+            "modified": "2023-07-25T00:55:58.902Z",
             "headers": [
                 {
                     "name": "Authorization",
@@ -144,15 +221,15 @@
             "tests": []
         },
         {
-            "_id": "59aae7a0-2c86-4310-8a19-35bf03476c94",
-            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
-            "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
+            "_id": "0c41bc19-cb5a-4174-a4b9-70bbf8bdcfb6",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "d6ab9492-e1a0-46ae-a4bf-0ea05c10620a",
             "name": "Login",
             "url": "/user/login",
             "method": "POST",
             "sortNum": 50000,
-            "created": "2023-07-17T01:15:09.483Z",
-            "modified": "2023-07-17T01:17:51.180Z",
+            "created": "2023-07-25T00:55:58.903Z",
+            "modified": "2023-07-31T10:32:05.104Z",
             "headers": [],
             "params": [],
             "body": {
@@ -161,7 +238,7 @@
                 "form": [
                     {
                         "name": "email",
-                        "value": "agt"
+                        "value": "jsis"
                     },
                     {
                         "name": "password",
@@ -172,16 +249,474 @@
             "tests": []
         },
         {
-            "_id": "d85ec8fa-2f79-4fec-9252-532dd5787440",
-            "colId": "2a287b40-30af-4b76-852b-6a3e91e558be",
-            "containerId": "662854cd-6457-402b-b6a3-077d8cafbe76",
+            "_id": "0fc7826b-37a5-47e1-a5c4-b9138043e7e3",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "d6ab9492-e1a0-46ae-a4bf-0ea05c10620a",
             "name": "Get Image",
             "url": "/user/getImage/2pbLdqoxwqJed6vrmmZMiy-x.jpg",
             "method": "GET",
             "sortNum": 60000,
-            "created": "2023-07-17T01:37:25.400Z",
-            "modified": "2023-07-17T01:38:08.158Z",
+            "created": "2023-07-25T00:55:58.904Z",
+            "modified": "2023-07-25T00:55:58.904Z",
             "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "cd32296f-a6d3-4622-801b-6c8edc032b33",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "test",
+            "url": "/job/test",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-07-25T01:41:17.149Z",
+            "modified": "2023-07-25T01:42:12.267Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8711658a-ecef-4366-a598-d0e547a3334e",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "get jobs",
+            "url": "/job/gets",
+            "method": "GET",
+            "sortNum": 85000,
+            "created": "2023-07-25T03:50:05.502Z",
+            "modified": "2023-07-25T03:50:58.904Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "050e2a41-ccf3-4cba-9eca-42d22f8847b8",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "add job",
+            "url": "/job/add",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2023-07-25T01:45:18.312Z",
+            "modified": "2023-07-27T22:17:41.515Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmNDE1YjFiOWRkNmExYjg1NGY3MmMiLCJuYW1lIjoiam9iIiwic3VybmFtZSI6InNpcyIsInBob25lIjoiMTExMTExMTEiLCJlbWFpbCI6IkpTSVMiLCJyb2xlIjoiQ09OVFJBQ1RPUiIsImlhdCI6MTY5MDQ5NjIwNSwiZXhwIjoxNjkwNTAzNDA1fQ.y1SzAjmKp_EYG-Y-4vtgjrN1NrFXCxQifNxWmRuWyFw\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "description",
+                        "value": "Arreglar puerta de madera"
+                    },
+                    {
+                        "name": "price",
+                        "value": "500"
+                    },
+                    {
+                        "name": "location",
+                        "value": "Guatemla, Guatemala Zona 6 ave 1, calle 11"
+                    },
+                    {
+                        "name": "oficios",
+                        "value": "Herrero"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "46716ff5-ee5d-4680-bab1-0e80f22b02bd",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "get job",
+            "url": "/job/get/64c61416027e00212ff7033e",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2023-07-25T03:55:41.779Z",
+            "modified": "2023-07-31T10:53:40.309Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e8e321bb-3224-41e7-9c4e-745ff9c5c139",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "update job",
+            "url": "/job/update/64c2ecd5fd21eaab52332b37",
+            "method": "PUT",
+            "sortNum": 120000,
+            "created": "2023-07-25T04:13:46.588Z",
+            "modified": "2023-07-28T00:54:52.330Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmNDE1YjFiOWRkNmExYjg1NGY3MmMiLCJuYW1lIjoiam9iIiwic3VybmFtZSI6InNpcyIsInBob25lIjoiMTExMTExMTEiLCJlbWFpbCI6IkpTSVMiLCJyb2xlIjoiQ09OVFJBQ1RPUiIsImlhdCI6MTY5MDUwNTYxNywiZXhwIjoxNjkwNTEyODE3fQ.Jeqxle4Kvtz_fLX5bz3zyJb_T9sxJ71kLHFZZthnmLc\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "description",
+                        "value": "Soldar puerta de metal"
+                    },
+                    {
+                        "name": "price",
+                        "value": "400"
+                    },
+                    {
+                        "name": "location",
+                        "value": "Guatemla, Guatemala Zona 6 ave 1, calle 11"
+                    },
+                    {
+                        "name": "oficios",
+                        "value": "Herrero"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "f8634a44-8cd5-4ce7-bd52-2061ac85b040",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "delete job",
+            "url": "/job/delete/64c2ecd5fd21eaab52332b37",
+            "method": "DELETE",
+            "sortNum": 130000,
+            "created": "2023-07-25T04:28:03.288Z",
+            "modified": "2023-07-28T01:00:02.127Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmNDE1YjFiOWRkNmExYjg1NGY3MmMiLCJuYW1lIjoiam9iIiwic3VybmFtZSI6InNpcyIsInBob25lIjoiMTExMTExMTEiLCJlbWFpbCI6IkpTSVMiLCJyb2xlIjoiQ09OVFJBQ1RPUiIsImlhdCI6MTY5MDUwNTYxNywiZXhwIjoxNjkwNTEyODE3fQ.Jeqxle4Kvtz_fLX5bz3zyJb_T9sxJ71kLHFZZthnmLc\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a21f9a1d-17d8-49fc-a637-18462c30c14d",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "efe4a47c-ff50-409d-9ff6-859b498e9668",
+            "name": "test",
+            "url": "/request/test",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2023-07-27T18:20:10.716Z",
+            "modified": "2023-07-27T18:21:14.341Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d1a7709e-c646-42a2-bcaf-19eeb0bc26e9",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "efe4a47c-ff50-409d-9ff6-859b498e9668",
+            "name": "add request",
+            "url": "/request/add",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2023-07-27T18:54:23.988Z",
+            "modified": "2023-07-30T23:31:28.620Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmMmE3M2RkODQ5ZGEzM2U5NjFiMTUiLCJuYW1lIjoiYWxlc3NhbmRybyIsInN1cm5hbWUiOiJndXRpZXJyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJBR1QiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNzU5ODc2LCJleHAiOjE2OTA3NjcwNzZ9.dxXld-SbfQVE9rVQJYYATQC-EidOpGwhf0y60SXCr8U\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "job",
+                        "value": "64c6b38e3d606621e651a7d2"
+                    },
+                    {
+                        "name": "duration",
+                        "value": "3 dias, 8 horas"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "4da0e6cd-f66e-4732-ae94-41719e6cfe0b",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "efe4a47c-ff50-409d-9ff6-859b498e9668",
+            "name": "get request by worker",
+            "url": "/request/getWorker",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2023-07-27T20:06:40.700Z",
+            "modified": "2023-07-30T06:14:23.337Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": " \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmNDE1YjFiOWRkNmExYjg1NGY3MmMiLCJuYW1lIjoiam9iIiwic3VybmFtZSI6InNpcyIsInBob25lIjoiMTExMTExMTEiLCJlbWFpbCI6IkpTSVMiLCJyb2xlIjoiQ09OVFJBQ1RPUiIsImlhdCI6MTY5MDY5NzY1NiwiZXhwIjoxNjkwNzA0ODU2fQ.nMTsd313BtkDkQkXoFOS5suTwQHj2r_EtbSl3aEzwCU\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5418c0d8-8ff0-4819-a667-c3e0aba8efe4",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "efe4a47c-ff50-409d-9ff6-859b498e9668",
+            "name": "get requests by job",
+            "url": "/request/getjob/64c5f7ebd5da4d0b421d1db8",
+            "method": "GET",
+            "sortNum": 170000,
+            "created": "2023-07-27T20:17:26.332Z",
+            "modified": "2023-07-30T05:48:36.424Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2bf800c1-7e90-4f2f-a06f-c8c46c46d7fc",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "efe4a47c-ff50-409d-9ff6-859b498e9668",
+            "name": "accept request",
+            "url": "/request/accept/64c30b9cbac52576ed1f1367",
+            "method": "PUT",
+            "sortNum": 190000,
+            "created": "2023-07-27T21:46:39.905Z",
+            "modified": "2023-07-28T00:28:28.774Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmNDE1YjFiOWRkNmExYjg1NGY3MmMiLCJuYW1lIjoiam9iIiwic3VybmFtZSI6InNpcyIsInBob25lIjoiMTExMTExMTEiLCJlbWFpbCI6IkpTSVMiLCJyb2xlIjoiQ09OVFJBQ1RPUiIsImlhdCI6MTY5MDUwMzQwOSwiZXhwIjoxNjkwNTEwNjA5fQ.EVQ-_t3jlvcLdJ_5X9hJLRscqXmEpe7MxqJNCuwA4QY\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "job",
+                        "value": "64c2d3907900f5b13f7dc91f"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "59227bb3-5a30-440b-ae69-0a9b754031c5",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "efe4a47c-ff50-409d-9ff6-859b498e9668",
+            "name": "delete request",
+            "url": "/request/delete",
+            "method": "DELETE",
+            "sortNum": 200000,
+            "created": "2023-07-27T22:47:07.138Z",
+            "modified": "2023-07-31T02:05:44.830Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmMmE3M2RkODQ5ZGEzM2U5NjFiMTUiLCJuYW1lIjoiYWxlc3NhbmRybyIsInN1cm5hbWUiOiJndXRpZXJyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJBR1QiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNzY5MTI3LCJleHAiOjE2OTA3NzYzMjd9.gjZRHNM9u4K9OS_u7TSQkWzndC_33tnZS6kh9MmAt3o\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "job",
+                        "value": "64c6b38e3d606621e651a7d2"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "0c83a8d4-5148-4fcf-a53b-63241d248639",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "efe4a47c-ff50-409d-9ff6-859b498e9668",
+            "name": "update request",
+            "url": "/request/update/64c30cdd7d245dd907b536fc",
+            "method": "PUT",
+            "sortNum": 210000,
+            "created": "2023-07-28T00:29:32.002Z",
+            "modified": "2023-07-28T00:46:49.616Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmMmE3M2RkODQ5ZGEzM2U5NjFiMTUiLCJuYW1lIjoiYWxlc3NhbmRybyIsInN1cm5hbWUiOiJndXRpZXJyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJBR1QiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNTA1MTAyLCJleHAiOjE2OTA1MTIzMDJ9.xsj3xk6R5SuifFzUHZX15KOzqOhvzoGt4lFzQx9vA40\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "duration",
+                        "value": "2 dia, 2 horas"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "4aa885d9-6c21-49b5-b03f-70c06eff0ab9",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "efe4a47c-ff50-409d-9ff6-859b498e9668",
+            "name": "rejected request by job",
+            "url": "/request/rejected/64c600ba3c29afe2abbcbef0",
+            "method": "PUT",
+            "sortNum": 250000,
+            "created": "2023-07-30T06:58:15.605Z",
+            "modified": "2023-07-30T07:05:15.500Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmNDE1YjFiOWRkNmExYjg1NGY3MmMiLCJuYW1lIjoiam9iIiwic3VybmFtZSI6InNpcyIsInBob25lIjoiMTExMTExMTEiLCJlbWFpbCI6IkpTSVMiLCJyb2xlIjoiQ09OVFJBQ1RPUiIsImlhdCI6MTY5MDcwMDUwMywiZXhwIjoxNjkwNzA3NzAzfQ.cvSTpUV9jDzbxSvNm85MtQPy_COcLoBkbihmjSmuN0o\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "job",
+                        "value": "64c5f7ebd5da4d0b421d1db8"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "b9cf9d13-6361-43de-819e-114bde4db4e3",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "completed job",
+            "url": "/job/completed/64c61416027e00212ff7033e",
+            "method": "PUT",
+            "sortNum": 260000,
+            "created": "2023-07-30T08:40:33.314Z",
+            "modified": "2023-07-30T09:01:12.543Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmNDE1YjFiOWRkNmExYjg1NGY3MmMiLCJuYW1lIjoiam9iIiwic3VybmFtZSI6InNpcyIsInBob25lIjoiMTExMTExMTEiLCJlbWFpbCI6IkpTSVMiLCJyb2xlIjoiQ09OVFJBQ1RPUiIsImlhdCI6MTY5MDcwMTgyOSwiZXhwIjoxNjkwNzA5MDI5fQ.hLmfayrZL6QIW71J2M2mJjzdeUt7RvMmTcoIoztKZxU"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "qualification",
+                        "value": "4"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "6583f3a2-56ad-48fd-bf28-211541058d4b",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "get jobs Unassigned",
+            "url": "/job/getsunassigned",
+            "method": "GET",
+            "sortNum": 280000,
+            "created": "2023-07-30T17:35:19.177Z",
+            "modified": "2023-07-30T17:35:43.342Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "588cfe64-5536-4c75-a96e-89325c4cf47a",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "get job applied",
+            "url": "/job/getapplied",
+            "method": "GET",
+            "sortNum": 290000,
+            "created": "2023-07-30T19:38:11.503Z",
+            "modified": "2023-07-31T02:05:38.900Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmMmE3M2RkODQ5ZGEzM2U5NjFiMTUiLCJuYW1lIjoiYWxlc3NhbmRybyIsInN1cm5hbWUiOiJndXRpZXJyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJBR1QiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNzY5MTI3LCJleHAiOjE2OTA3NzYzMjd9.gjZRHNM9u4K9OS_u7TSQkWzndC_33tnZS6kh9MmAt3o\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "545a73a7-067c-40bf-bc7e-715a7d57b0eb",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "b12c957a-ff03-498f-b768-5c1cbf96330b",
+            "name": "get jobs not applied",
+            "url": "/job/getnotapplied",
+            "method": "GET",
+            "sortNum": 300000,
+            "created": "2023-07-30T20:16:33.507Z",
+            "modified": "2023-07-31T02:49:31.530Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmMmE3M2RkODQ5ZGEzM2U5NjFiMTUiLCJuYW1lIjoiYWxlc3NhbmRybyIsInN1cm5hbWUiOiJndXRpZXJyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJBR1QiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNzcxNzYxLCJleHAiOjE2OTA3Nzg5NjF9.qyWxyScmCznxqEeoLmUmn5CTsDvTLsNLaHks_HjHq_g\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c588db1f-0370-4046-ad8e-980bd0c735aa",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "c98c700f-2545-4bef-8549-760d7f74eacb",
+            "name": "get job in progress",
+            "url": "/job/getinprogress",
+            "method": "GET",
+            "sortNum": 320000,
+            "created": "2023-07-31T02:19:51.328Z",
+            "modified": "2023-07-31T02:20:17.080Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmMmE3M2RkODQ5ZGEzM2U5NjFiMTUiLCJuYW1lIjoiYWxlc3NhbmRybyIsInN1cm5hbWUiOiJndXRpZXJyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJBR1QiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNzcwMDA5LCJleHAiOjE2OTA3NzcyMDl9.4iVvHo1EeObf4fdtGwZ25uQMW1Ej3ndaoEx4gy4Q85A\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3534e4ef-25ec-43fa-8b48-feecc244a1eb",
+            "colId": "c2a0f3d2-661c-46af-871b-e2e108307b0d",
+            "containerId": "c98c700f-2545-4bef-8549-760d7f74eacb",
+            "name": "get job completed",
+            "url": "/job/getcompleted",
+            "method": "GET",
+            "sortNum": 330000,
+            "created": "2023-07-31T02:32:07.703Z",
+            "modified": "2023-07-31T02:32:30.968Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGJmMmE3M2RkODQ5ZGEzM2U5NjFiMTUiLCJuYW1lIjoiYWxlc3NhbmRybyIsInN1cm5hbWUiOiJndXRpZXJyZXoiLCJwaG9uZSI6IjEyMzQ1Njc4IiwiZW1haWwiOiJBR1QiLCJyb2xlIjoiV09SS0VSIiwiaWF0IjoxNjkwNzcwMDA5LCJleHAiOjE2OTA3NzcyMDl9.4iVvHo1EeObf4fdtGwZ25uQMW1Ej3ndaoEx4gy4Q85A\""
+                }
+            ],
             "params": [],
             "tests": []
         }
