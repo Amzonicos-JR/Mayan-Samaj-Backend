@@ -137,8 +137,8 @@ exports.login = async (req, res) => {
     }
 }
 
-// Image
-
+'[ADMIN]'
+// Get account
 exports.getAccount = async (req, res) => {
     try {
         const userId = req.params.id;
@@ -152,15 +152,20 @@ exports.getAccount = async (req, res) => {
     }
 }
 
-
+// update account
 exports.updateAccount = async (req, res) => {
     try {
         //obtener el Id de su cuenta 
         let id = req.params.id;
         //obtener la data a actualizar
         let data = req.body;
+        //Validar que el data.email no venga vacio
+        if (data.email.length == 0) return res.send({ message: 'Error you must enter an email' });
+        //Validar si existe un correo igual al nuevo ingresado por el cliente
+        const emailExist = await User.findOne({ email: data.email });
+        if (emailExist) return res.send({ message: 'Sorry, email already registered' })
         //Validar datos a actualizar
-        if (data.phone || data.email || data.password) return res.send({ message: 'Data not updateable' })
+        if (data.phone || data.password) return res.send({ message: 'Data not updateable' })
         // Validar No Telefono
         if (data.phone) {
             if (data.phone.length != 8) return res.send({ message: 'No.phone not valid' })
@@ -199,6 +204,7 @@ exports.deleteUser = async (req, res) => {
     }
 }
 
+// Perfil
 exports.getProfile = async (req, res) => {
     try {
         //let userId = req.params.id;

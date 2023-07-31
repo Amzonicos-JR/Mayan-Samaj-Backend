@@ -3,6 +3,7 @@ const Email = require('./email.model')
 const User = require('../user/user.model')
 //const infoUser = '-_id -phone -email -password -role'
 
+// Enviar emails
 exports.sendEmail = async (req, res) => {
     try {
         let data = req.body;
@@ -29,6 +30,7 @@ exports.sendEmail = async (req, res) => {
     }
 }
 
+// Emails por usuario
 exports.getByUser = async (req, res) => {
     try {
         let idUser = req.params.id;
@@ -47,7 +49,7 @@ exports.getByUser = async (req, res) => {
         return res.send({ message: 'Error getting emails' })
     }
 }
-
+// Ver todos los emails
 exports.seeEmail = async (req, res) => {
     try {
         let idEmail = req.params.id;

@@ -14,7 +14,7 @@ api.get('/getW', userController.getW)
 
 api.delete('/delete/:id', userController.deleteUser)
 
-// Login
+// Rutas
 api.post('/login', userController.login);
 api.put('/update/:id', userController.updateAccount);
 api.get('/getAccount/:id', userController.getAccount)
