@@ -185,7 +185,7 @@ exports.updateAccount = async (req, res) => {
 exports.deleteUser = async (req, res) => {
     try {
         let idUser = req.params.id;
-        let userJob = await Job.findOne({ user: idUser })
+        // let userJob = await Job.findOne({ user: idUser })
         // if(userJob){
         //     return res.status(400).send({message: 'User has jobs'});
         // }else{

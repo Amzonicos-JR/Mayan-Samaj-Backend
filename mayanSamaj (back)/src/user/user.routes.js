@@ -12,7 +12,7 @@ api.get('/getC', userController.getC)
 api.post('/registerW', userController.registerWorker)
 api.get('/getW', userController.getW)
 
-api.delete('/delete', userController.deleteUser)
+api.delete('/delete/:id', userController.deleteUser)
 
 // Login
 api.post('/login', userController.login);
