@@ -7,7 +7,8 @@ const infoUser = '-_id -phone -email -password -role'
 exports.generateReceipt = async (req, res) => {
     try {
         let data = req.body;
-        let jobG = await Job.findOne({ _id: data.job });
+        let idJob = req.params.id;
+        let jobG = await Job.findOne({ _id: idJob });
         //Verificar que no se duplique el recibo
         let existReceipt = await Receipt.findOne({ jobDescription: jobG.description });
         if (existReceipt) return res.send({ message: 'receipt exist!' })
