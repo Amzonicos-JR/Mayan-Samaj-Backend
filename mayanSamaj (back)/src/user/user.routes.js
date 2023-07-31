@@ -16,7 +16,8 @@ api.delete('/delete', userController.deleteUser)
 
 // Login
 api.post('/login', userController.login);
-api.put('/update', [ensureAuth], userController.updateAccount);
+api.put('/update/:id', userController.updateAccount);
+api.get('/getAccount/:id', userController.getAccount)
 
 api.put('/updatePassword', [ensureAuth], userController.updatePassword);
 api.put('/updateEmail', [ensureAuth], userController.updateEmail);

@@ -1,4 +1,4 @@
-    'use strict'
+'use strict'
 const User = require('./user.model');
 // const Job = require('../job/job.model');
 const fs = require('fs')
@@ -139,17 +139,32 @@ exports.login = async (req, res) => {
 
 // Image
 
+exports.getAccount = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findOne({ _id: userId });
+        if (!user) return res.send({ message: 'User not found' });
+        return res.send({ message: 'User found', user })
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({ message: 'Error get user' });
+    }
+}
+
 
 exports.updateAccount = async (req, res) => {
     try {
         //obtener el Id de su cuenta 
-        let id = req.user.sub;
+        let id = req.params.id;
         //obtener la data a actualizar
         let data = req.body;
         //Validar datos a actualizar
-        if (data.email || data.password) return res.send({ message: 'Data not updateable' })
+        if (data.phone || data.email || data.password) return res.send({ message: 'Data not updateable' })
         // Validar No Telefono
-        if (data.phone.length != 8) return res.send({ message: 'No.phone not valid' })
+        if (data.phone) {
+            if (data.phone.length != 8) return res.send({ message: 'No.phone not valid' })
+        }
         //Validar que exista el usuario
         let existU = await User.findOne({ _id: id });
         if (!existU) return res.status(404).send({ message: 'User not found' });
@@ -160,7 +175,7 @@ exports.updateAccount = async (req, res) => {
             { new: true }
         )
         if (!updatedUser) return res.send({ message: 'User not found and not updated' });
-        return res.send({ message: 'User updated:', updatedUser });
+        return res.send({ message: 'User updated', updatedUser });
     } catch (err) {
         console.error(err);
         return res.status(500).send({ message: 'Error updating product' });
@@ -227,9 +242,9 @@ exports.updatePassword = async (req, res) => {
     }
 };
 
-exports.updateEmail = async (req, res) =>{
-    try{
-    let data = req.body;
+exports.updateEmail = async (req, res) => {
+    try {
+        let data = req.body;
         //let userId = req.params.id;
         let user = await User.findOne({ _id: req.user.sub });
         if (await checkPassword(data.password, user.password)) {
