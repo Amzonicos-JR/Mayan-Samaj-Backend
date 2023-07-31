@@ -1,4 +1,4 @@
-'use strict'
+    'use strict'
 const User = require('./user.model');
 // const Job = require('../job/job.model');
 const fs = require('fs')
@@ -202,6 +202,7 @@ exports.updatePassword = async (req, res) => {
         //let userId = req.params.id;
         let user = await User.findOne({ _id: req.user.sub });
         if (await checkPassword(data.password, user.password)) {
+            console.log(user.password, 'sxf')
             if (Object.entries(data).length === 0) return res.status(400).send({ message: 'Have submitted some data that cannot be updated' });
             let newPassword = await encrypt(data.newPassword);
             let updatePassword = await User.findOneAndUpdate(
@@ -247,7 +248,7 @@ exports.updateEmail = async (req, res) =>{
                 updateEmail
             });
         } else {
-            return res.status(400).send({ message: "Passwords do not match" });
+            return res.status(400).send({ message: "Password do not match" });
         }
     } catch (err) {
         console.error(err);

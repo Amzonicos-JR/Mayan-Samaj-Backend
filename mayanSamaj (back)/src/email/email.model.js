@@ -1,13 +1,11 @@
-'use strict'
-
 const mongoose = require('mongoose')
 
-const emailSchema =  mongoose.Schema({
+const emailSchema = mongoose.Schema({
     from: {
         type: String,
         require: true,
         uppercase: true,
-    },    
+    },
     subject: {
         type: String,
         require: true
@@ -20,12 +18,12 @@ const emailSchema =  mongoose.Schema({
         type: String,
         require: true
     },
-    for: {
+    forPerson: {
         type: String,
         require: true,
         uppercase: true,
     }
-},{
+}, {
     versionKey: false
 })
 
